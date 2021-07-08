@@ -17,18 +17,22 @@ critMulti2 = 3
 # General Adjustments /salute
 damageBonus = 5
 toHitBonus = 5
-ac = 10
+# Set this to a target AC for crit confirmation purposes
+targetAC = 10
 confirmCrits = 1
+
+# Set a target value for what you would consider a high damage roll
+targetPeak = 34
 
 # For calculation process
 executions = 10000
-targetPeak = 40
+
+# DO NOT TOUCH THESE
 weapon1Peaks = 0
 weapon2Peaks = 0
 damageSum1 = 0
 damageSum2 = 0
-
-runs=0
+runs = 0
 
 while runs < executions:
     hit = random.randint(1, 20)
@@ -52,7 +56,7 @@ while runs < executions:
     if hit >= minimumCrit1:
         if confirmCrits:
             confirmHit = random.randint(1, 20) + toHitBonus
-            if confirmHit < ac:
+            if confirmHit < targetAC:
                 multi = 1
         diceSum1 = diceSum1*multi
 
@@ -60,7 +64,7 @@ while runs < executions:
     if hit >= minimumCrit2:
         if confirmCrits:
             confirmHit = random.randint(1, 20) + toHitBonus
-            if confirmHit < ac:
+            if confirmHit < targetAC:
                 multi = 1
         diceSum2 = diceSum2*multi
 
