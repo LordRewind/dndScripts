@@ -25,7 +25,7 @@ confirmCrits = 1
 targetPeak = 34
 
 # For calculation process
-executions = 10000
+executions = 100000
 
 # DO NOT TOUCH THESE
 weapon1Peaks = 0
@@ -83,6 +83,8 @@ while runs < executions:
 
 weapon1Avg = damageSum1/executions
 weapon2Avg = damageSum2/executions
+
+print("{0} Executions yields:".format(executions))
 
 print("{2} Damage at {0} or higher count={1}".format(targetPeak, weapon1Peaks, weapon1Name))
 print("{2} Damage at {0} or higher count={1}".format(targetPeak, weapon2Peaks, weapon2Name))
